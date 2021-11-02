@@ -35,7 +35,7 @@
 
 
 ## 設計書
-これから作成予定です。
+これから作成予定です。<br>
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/19Qf4mDMH231_FjOPy3JVyEGV-10ZmFNA4TIN1THf8b8/edit#gid=0
