@@ -39,13 +39,13 @@
 
 ## 設計書
 
-###画面遷移図
+###　画面遷移図
 https://app.diagrams.net/#G1zZQBzxxyWcYisaAAVOJlhQwhHtUDDgQX
 
-###ER図
+###　ER図
 https://app.diagrams.net/#G1hPwOUGowHUFixx6ysxnFV83jBzBIuDEb
 
-###詳細設計
+###　詳細設計
 
 
 ## チャレンジ要素一覧
