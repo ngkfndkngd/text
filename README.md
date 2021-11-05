@@ -38,7 +38,15 @@
 
 
 ## 設計書
-これから作成予定です。<br>
+
+###画面遷移図
+https://app.diagrams.net/#G1zZQBzxxyWcYisaAAVOJlhQwhHtUDDgQX
+
+###ER図
+https://app.diagrams.net/#G1hPwOUGowHUFixx6ysxnFV83jBzBIuDEb
+
+###詳細設計
+
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/19Qf4mDMH231_FjOPy3JVyEGV-10ZmFNA4TIN1THf8b8/edit#gid=0
