@@ -38,18 +38,17 @@
 
 
 ## 設計書
+### 画面遷移図
+<https://app.diagrams.net/#G1zZQBzxxyWcYisaAAVOJlhQwhHtUDDgQX>
 
-###　画面遷移図
-https://app.diagrams.net/#G1zZQBzxxyWcYisaAAVOJlhQwhHtUDDgQX
+### ER図
+<https://app.diagrams.net/#G1hPwOUGowHUFixx6ysxnFV83jBzBIuDEb>
 
-###　ER図
-https://app.diagrams.net/#G1hPwOUGowHUFixx6ysxnFV83jBzBIuDEb
-
-###　詳細設計
-
+### 詳細設計
+<https://docs.google.com/spreadsheets/d/1jvZKFGVOep3EGqYS2BMH9rAifC-hFF9tAHks5x0Qtmk/edit#gid=2133469642>
 
 ## チャレンジ要素一覧
-https://docs.google.com/spreadsheets/d/19Qf4mDMH231_FjOPy3JVyEGV-10ZmFNA4TIN1THf8b8/edit#gid=0
+<https://docs.google.com/spreadsheets/d/19Qf4mDMH231_FjOPy3JVyEGV-10ZmFNA4TIN1THf8b8/edit#gid=0>
 
 ## 開発環境
 - OS：Linux(CentOS)<br>
