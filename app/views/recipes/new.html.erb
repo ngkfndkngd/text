@@ -16,17 +16,22 @@
               <%= f.label :◯人分, class: "col-3" %>
               <%= f.text_field :count, placeholder:"2人分", class: 'col-6 form-control' %>
             </div>
-
-            <div class="row form-group col-6">
-              <%= f.label :材料, class: "col-3" %>
-              <%= f.text_field :materials_ingredient, placeholder:"材料", class: 'col-6 form-control' %>
-            </div>
-
-            <div class="row form-group col-6">
-              <%= f.label :分量, class: "col-3" %>
-              <%= f.text_field :materials_amount, placeholder:"分量", class: 'col-6 form-control' %>
-            </div>
-
+            <%= f.fields_for :materials do |m| %>
+              <%= render "recipes/material_fields", f: m %>
+            <% end %>
+            
+            <div id="detail-association-insertion-point"></div>
+        
+              <div class="col-10 mx-auto mt-2">
+                <%= link_to_add_association "+フォームを追加", f, :materials,
+                class: "btn btn-secondary btn-block",
+                data: {
+                association_insertion_node: '#detail-association-insertion-point',
+                association_insertion_method: 'after'
+                }%>
+              </div>
+              
+             <div id="detail-association-insertion-point"></div>
             <div class="row form-group">
               <%= f.label :作り方, class: "col-3" %>
               <%= f.text_area :description, placeholder:"ここに説明文を記述します", class: 'col-6 form-control' %>

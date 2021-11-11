@@ -1,2 +1,31 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-5">
+      <h4 class="recipe_name"><%= @recipe.name %></h4>
+      <div class="recipe_image">
+          <%= attachment_image_tag(@recipe, :recipe_image,:fill, 130, 130) %>
+      </div>
+        <div class="co-5">
+          <p class="name">
+           <span><i class="fas fa-user"></i><%= @recipe.user.name %></span>
+          </p>
+          <p>投稿日時：<%= @recipe.created_at.strftime('%Y/%m/%d') %></p>
+          <h4 class="title">
+            材料(<%= @recipe.count %>人分)
+          </h4>
+          <p class"list">
+            <%@recipe.materials.each do |m|%>
+              <strong><%= m.ingredient %></strong><small><%= m.amount %></small>
+            <%end%>
+          </p>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-10">
+          <h4>作り方</h4>
+          <p class="list">
+            <%= @recipe.description %>
+          </p>
+        </div>
+      </div>
+</div>
