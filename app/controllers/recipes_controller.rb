@@ -20,12 +20,26 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    @recipe = Recipe.find(params[:id])
+    if @recipe.user != current_user
+      redirect_to recipes_path
+    end
   end
 
   def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(recipe_params)
+       redirect_to recipe_path(@recipe.id), notice:'You have creatad book successfully.'
+    else
+      render :edit
+    end
+
   end
 
   def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    redirect_to recipes_path
   end
 
   private
