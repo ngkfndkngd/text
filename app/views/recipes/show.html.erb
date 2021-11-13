@@ -1,11 +1,12 @@
 <div class="container">
   <div class="row">
-    <div class="col-5">
+    <div class="col-4 offset-1">
       <h4 class="recipe_name"><%= @recipe.name %></h4>
       <div class="recipe_image">
-          <%= attachment_image_tag(@recipe, :recipe_image,:fill, 130, 130) %>
+          <%= attachment_image_tag(@recipe, :recipe_image,:fill, 300, 300) %>
       </div>
-        <div class="co-5">
+    </div>
+        <div class="col-4 offset-1">
           <p class="name">
            <span><i class="fas fa-user"></i><%= @recipe.user.name %></span>
           </p>
@@ -18,9 +19,10 @@
               <strong><%= m.ingredient %></strong><small><%= m.amount %></small>
             <%end%>
           </p>
-    </div>
+        </div>
   </div>
-        <div class="col-10">
+      <div class="row">
+        <div class="col-7 offset-5">
           <h4>作り方</h4>
           <p class="list">
             <%= @recipe.description %>
@@ -35,4 +37,5 @@
             <% end %>
           <% end %>
         </div>
+      </div>
 </div>
