@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
-    @recipe.materials.build ##親モデル.子モデル.buildで子モデルのインスタンス作成
+    @recipe.materials.build # #親モデル.子モデル.buildで子モデルのインスタンス作成
   end
 
   def create
@@ -12,7 +12,7 @@ class RecipesController < ApplicationController
   end
 
   def index
-    @recipes = Recipe.page(params[:page]).per(8)
+    @recipes = Recipe.all.includes([:user]).page(params[:page]).per(8)
   end
 
   def show
@@ -29,11 +29,10 @@ class RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
-       redirect_to recipe_path(@recipe.id), notice:'You have creatad book successfully.'
+      redirect_to recipe_path(@recipe.id), notice: 'You have creatad book successfully.'
     else
       render :edit
     end
-
   end
 
   def destroy
@@ -45,7 +44,6 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :count, :description, :recipe_image, :user_id, materials_attributes: [:id, :ingredient, :amount, :_destroy])
+    params.require(:recipe).permit(:name, :count, :description,:work, :recipe_image, :user_id, materials_attributes: [:id, :ingredient, :amount, :_destroy])
   end
-
 end

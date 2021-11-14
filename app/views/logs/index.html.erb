@@ -1,2 +1,47 @@
-<h1>Logs#index</h1>
-<p>Find me in app/views/logs/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h4>カレンダー</h4>
+        <div class="col-sm-8">
+          <h5><strong>今日の腸の状態は？</strong></h5>
+        </div>
+            <%= form_with model:@log, url:logs_path, local:true do |f| %>
+              <!--<div class="col-2">-->
+                <%= f.radio_button :record_status, :fine, {checked: true} %>
+                <%= image_tag 'logo0.png', size: "150x100"%>
+              <!--</div>-->
+              <!--<div class="col-2">-->
+                <%= f.radio_button :record_status, :low , {} %>
+                <%= image_tag 'logo1.png', size: "150x100"%>
+              <!--</div>-->
+              <!--<div class="col-2">-->
+                <%= f.radio_button :record_status, :sick, {} %>
+                <%= image_tag 'logo3.png', size: "150x100"%>
+              <!--</div>-->
+              <div class="time">
+                <%= f.label :日時, class: "time_date" %>
+                <%= f.datetime_select :start_time %>
+              </div>
+              <div class="form-group">
+              <%= f.submit "登録", class: 'btn btn_success btn-lg offset-5' %>
+            </div>
+            <% end %>
+            <div class="calendar">
+              <%= month_calendar events: @logs do |date, logs| %>
+                <%= date.day %>
+              
+                <% logs.each do |log| %>
+                 <% if log.record_status == fine %> then
+                 <div class"imag-status"><%= image_tag 'logo0.png', size: "150x100"%></div>
+                 <% else %>
+                 <% end %>
+                  <div>
+                     <%= log.record_status %>
+                  </div>
+                  
+                <% end %>
+              <% end %>
+            </div>
+    </div>
+  </div>
+</div>
