@@ -5,7 +5,10 @@ ja:
         fine: "すっきり"
         low: "もやもや"
         sick: "さらさら"
-ja:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "なんかえらー"
   date:
     formats:
       default: "%Y/%m/%d"

@@ -5,7 +5,11 @@ class LogsController < ApplicationController
   end
 
   def create
-    Log.create(log_params)
+    
+    #Log.create!(log_params)
+    log_tmp = Log.new(log_params)
+    log_tmp.user_id = current_user.id
+    log_tmp.save
     redirect_to logs_path
   end
 

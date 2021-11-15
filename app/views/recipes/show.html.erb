@@ -23,21 +23,42 @@
           </p>
         </div>
   </div>
-      <div class="row">
-        <div class="col-7 offset-5">
-          <h4>作り方</h4>
-          <p class="list">
-            <%= @recipe.description %>
-          </p>
-          <% if user_signed_in? %>
-            <% if current_user.id != @recipe.user.id %>
-            <% else %>
-              <div class="recipe-btn">
-                <%= link_to "レシピ編集", edit_recipe_path(@recipe.id), class: "btn btn-warning recipe-edit" %>
-                <%= link_to "レシピ削除", recipe_path(@recipe.id), method:  :delete,data: {confirm: "本当に削除しますか？"}, class:  "btn btn-danger" %>
-              </div>
-            <% end %>
+  <div class="row">
+    <div class="col-7 offset-5">
+      <h4>作り方</h4>
+        <p class="list">
+          <%= @recipe.description %>
+        </p>
+        <% if user_signed_in? %>
+          <% if current_user.id != @recipe.user.id %>
+          <% else %>
+            <div class="recipe-btn">
+              <%= link_to "レシピ編集", edit_recipe_path(@recipe.id), class: "btn btn-warning recipe-edit" %>
+              <%= link_to "レシピ削除", recipe_path(@recipe.id), method:  :delete,data: {confirm: "本当に削除しますか？"}, class:  "btn btn-danger" %>
+            </div>
           <% end %>
+        <% end %>
+    </div>
+  </div>
+  <div class="row my-5">
+    <div class="col-10 offset-1">
+      <% if @reviews %>
+        <div class="recipes-outline">
+          
+    
+          
+          <%= render "reviews/review" %>
         </div>
+      <% else %>
+        <p>コメントはまだありません</p>
+      <% end %>
+      <div class="bottomInput">
+        <%= form_with(model: [@recipe, @review], id: "new-review") do |f| %>
+          <%= f.attachment_field :review_image, class: "imag-review" %>
+          <%= f.text_field :comment, class: "input-review" %>
+          <%= f.submit "コメントする", class: "submit-review" %>
+        <% end %>
       </div>
+    </div>
+  </div>
 </div>
