@@ -1,2 +1,51 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class='container'>
+  <div class="row">
+    <div class="col-2 mt-4 offset-1">
+      <h4>マイページ</h4>
+      <%= attachment_image_tag @user, :profile_image, size:"100x100", format:'jpeg', fallback:"no_image.jpg" %>
+    </div>
+    <div class="col-5 offset-1 mt-4 mr-auto">
+      <table class="table">
+        <tr>
+          <th>name</th>
+          <th><%= @user.name %></th>
+        </tr>
+        <tr>
+          <th>introduction</th>
+          <th><%= @user.introduction %></th>
+        </tr>
+      </table>
+      <div class="link-edit">
+        <%= link_to '編集', edit_user_path(@user.id), class:"link btn btn_success" %>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-10 mt-4 offset-1">
+      <div class="texts-wrapper">
+        <div class="contents-title text-center">
+          <h3 class="title">投稿レシピ</h3>
+            <div class="d-flex flex-row flex-wrap">
+              <% @recipes.each do |recipe|%>
+                <div class="d-flex flex-column mr-5 mt-3">
+                  <%= link_to recipe_path(recipe.id), class:"link_recipe" do %>
+                    <%= attachment_image_tag recipe, :recipe_image, :fill, 100, 100, format:'jpeg', fallback:"no_image.jpg" %>
+                  <% end %>
+                  <p class="name">
+                    <%= link_to recipe_path(recipe), class:"text-dark" do %>
+                      <span> <%= recipe.name %></span>
+                    <% end %>
+                  </p>
+                </div>
+              <% end %> 
+            </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="m-5">
+      <%= paginate @recipes %>
+    </div>
+  </div>
+</div>
