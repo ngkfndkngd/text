@@ -4,6 +4,10 @@ class LogsController < ApplicationController
     @logs = current_user.logs
   end
 
+  def show
+    @log = Log.find(params[:id])
+  end
+
   def create
     #Log.create!(log_params)
     # byebug
@@ -15,7 +19,7 @@ class LogsController < ApplicationController
   def edit
      @log = Log.find(params[:id])
     if @log.user != current_user
-      redirect_to logs_path
+      redirect_to log_path(@log)
     end
   end
 
@@ -29,6 +33,12 @@ class LogsController < ApplicationController
   end
 
   def destroy
+    @log = Log.find(params[:id])
+    if @log.destroy
+      redirect_to logs_path, notice: 'You have creatad book successfully.'
+    else
+      render :s
+    end
   end
 
   private

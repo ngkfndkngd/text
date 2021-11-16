@@ -1,7 +1,8 @@
 class ReviewsController < ApplicationController
   def create
-    @review = Review.new(review_params)
-    @review.save
+    review = Review.new(review_params)
+    review.save
+    @reviews = Recipe.find(params[:recipe_id]).reviews.all.includes([:user])
     # app/views/review/create.js.erbを参照する
   end
 
@@ -9,7 +10,7 @@ class ReviewsController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @review = @recipe.reviews.find(params[:id])
     @review.destroy
-    redirect_back(fallback_location: root_path)
+
   end
 
   private
