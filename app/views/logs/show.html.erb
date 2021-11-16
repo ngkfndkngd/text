@@ -1,0 +1,28 @@
+<div class='container'>
+  <div class="row">
+    <div class="col-5 mt-4 offset-1">
+      <h4><strong><%= current_user.name %>さん 今日の腸の調子は？</strong></h4>
+    </div>
+  </div>
+  <div class"row">
+    <div class"col-3 my4 offset-2 mr-auto">
+      <div class"log-condition">
+        <% if @log.record_status == "fine"  %>
+          <div class"imag-status"><%= image_tag 'logo0.png', size: "150x100" %></div>
+        <% elsif @log.record_status == "low" %>
+          <div class"imag-status"><%= image_tag 'logo1.png', size: "150x100"%></div>
+        <% else %>
+          <div class"imag-status"><%= image_tag 'logo3.png', size: "150x100" %></div>
+        <% end %>
+      </div>
+    <div class="col-5 offset-1 mt-4 mr-auto">
+      <div class="link-edit">
+        <%= link_to '編集', edit_log_path(@log.id), class:"link btn btn_success" %>
+      </div>
+      <div class="link-destroy">
+        <%= link_to '削除', log_path(@log.id), method:  :delete, data: {confirm: "本当に削除しますか？"}, class:"link btn btn_success" %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

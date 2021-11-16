@@ -1,22 +1,16 @@
 class ReviewsController < ApplicationController
   def create
-    @review = Review.create(review_params)
-    # @review.recipe_id = params[:recipe_id]
-    respond_to do |format|
-      if @review.save
-        format.html { render_back(fallback_location: root_path) }
-        format.js    # create.js.erbが呼び出される
-      else
-        format.html { render_back(fallback_location: root_path) }
-      end
-    end
+    review = Review.new(review_params)
+    review.save
+    @reviews = Recipe.find(params[:recipe_id]).reviews.all.includes([:user])
+    # app/views/review/create.js.erbを参照する
   end
 
   def destroy
     @recipe = Recipe.find(params[:recipe_id])
-    @review = current_user.review.find_by(recipe_id: @recipe.id)
+    @review = @recipe.reviews.find(params[:id])
     @review.destroy
-    redirect_back(fallback_location: root_path)
+
   end
 
   private

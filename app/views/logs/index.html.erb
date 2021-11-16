@@ -31,12 +31,12 @@
                 <%= date.day %>
               
                 <% logs.each do |log| %>
-                  <%= link_to edit_log_path(log), class:"text-dark" do %>
-                     <% if log.record_status == 0 %>
+                  <%= link_to log_path(log), class:"text-dark" do %>
+                     <% if log.record_status == "fine"  %>
                        <div class"imag-status"><%= image_tag 'logo0.png', size: "150x100" %></div>
-                     <% elsif log.record_status == 1 %>
-                       <div class"imag-status"><%= image_tag 'logo0.png', size: "150x100" %></div>
-                     <% else log.record_status == 2 %>
+                     <% elsif log.record_status == "low" %>
+                       <div class"imag-status"><%= image_tag 'logo1.png', size: "150x100"%></div>
+                     <% else %>
                        <div class"imag-status"><%= image_tag 'logo3.png', size: "150x100" %></div>
                      <% end %>
                   <% end %>

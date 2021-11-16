@@ -1,5 +1,4 @@
-<% @reviews.each do |review| %>
-  <li>
+<% reviews.each do |review| %>
     <div class="recipe_image">
       <%= attachment_image_tag(review, :review_image,:fill, 60, 60) %>
     </div>
@@ -17,5 +16,4 @@
         <% end %>
       <% end %>
     </div>
-  </li>
 <% end %>
