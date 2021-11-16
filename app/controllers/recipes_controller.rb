@@ -18,7 +18,8 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
     @review = Review.new
-    @reviews = @recipe.reviews.all
+    @reviews = @recipe.reviews.all.includes([:user])
+    
   end
 
   def edit

@@ -10,6 +10,11 @@
           <p class="name">
            <span><i class="fas fa-user"></i><%= @recipe.user.name %></span>
           </p>
+          <% if @recipe.favorited_by?(current_user) %>
+            <p><%= link_to "レシピ保存済", recipe_favorites_path(@recipe), method: :delete %></p>
+          <% else %>
+            <p><%= link_to "レシピ保存", recipe_favorites_path(@recipe), method: :post %></p>
+          <% end %>
           <p>投稿日時：<%= @recipe.created_at.strftime('%Y/%m/%d') %></p>
           <h6 class="title">レシピ説明</h6>
           <p><%= @recipe.work %></p>
@@ -43,16 +48,13 @@
   <div class="row my-5">
     <div class="col-10 offset-1">
       <% if @reviews %>
-        <div class="recipes-outline">
-          
-    
-          
+        <div class="recipes-reviews">
           <%= render "reviews/review" %>
         </div>
       <% else %>
         <p>コメントはまだありません</p>
       <% end %>
-      <div class="bottomInput">
+      <div class="recipes-reviews">
         <%= form_with(model: [@recipe, @review], id: "new-review") do |f| %>
           <%= f.attachment_field :review_image, class: "imag-review" %>
           <%= f.text_field :comment, class: "input-review" %>

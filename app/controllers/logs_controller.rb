@@ -5,18 +5,27 @@ class LogsController < ApplicationController
   end
 
   def create
-    
     #Log.create!(log_params)
-    log_tmp = Log.new(log_params)
-    log_tmp.user_id = current_user.id
-    log_tmp.save
+    # byebug
+    @log = Log.new(log_params)
+    @log.save
     redirect_to logs_path
   end
 
   def edit
+     @log = Log.find(params[:id])
+    if @log.user != current_user
+      redirect_to logs_path
+    end
   end
 
   def update
+    @log = Log.find(params[:id])
+    if @log.update(log_params)
+      redirect_to logs_path, notice: 'You have creatad book successfully.'
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -25,7 +34,7 @@ class LogsController < ApplicationController
   private
 
   def log_params
-    params.require(:log).permit(:record_status, :user_id, :start_time)
+    params.require(:log).permit(:record_status, :user_id, :start_time).merge(user_id: current_user.id)
   end
 
 end

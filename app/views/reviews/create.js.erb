@@ -1,2 +1,2 @@
-$(".reviewsArea").html("<%= j(render 'reviews/review', { reviews: @review.recipe.reviews }) %>")
-$(".nput-review").val('');
+$(".recipes-reviews").html("<%= j(render 'reviews/review', reviews: @reviews) %>")
+$("#review_comment").val('');
