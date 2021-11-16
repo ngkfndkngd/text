@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @recipes = Recipe.where(user_id:current_user).order(created_at: :desc).page(params[:page]).per(7)
-    @favorites = Favorite.where(user_id: current_user.id)
+    @favorites = Favorite.where(user_id: current_user.id).includes([:recipe])
   end
 
   def edit
