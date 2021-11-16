@@ -9,10 +9,13 @@
       <div class"log-condition">
         <% if @log.record_status == "fine"  %>
           <div class"imag-status"><%= image_tag 'logo0.png', size: "150x100" %></div>
+          <h3>その調子で頑張ろう！！</h3>
         <% elsif @log.record_status == "low" %>
           <div class"imag-status"><%= image_tag 'logo1.png', size: "150x100"%></div>
+          <h3>おすすめレシピで綺麗習慣、頑張ろう！</h3>
         <% else %>
           <div class"imag-status"><%= image_tag 'logo3.png', size: "150x100" %></div>
+          <h3>腸を温めて、休息をとろう！</h3>
         <% end %>
       </div>
     <div class="col-5 offset-1 mt-4 mr-auto">

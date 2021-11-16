@@ -8,9 +8,9 @@ class ReviewsController < ApplicationController
 
   def destroy
     @recipe = Recipe.find(params[:recipe_id])
-    @review = @recipe.reviews.find(params[:id])
-    @review.destroy
-
+    review = @recipe.reviews.find(params[:id])
+    review.destroy
+    @reviews = @recipe.reviews.all.includes([:user])
   end
 
   private
