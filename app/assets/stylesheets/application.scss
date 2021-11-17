@@ -19,3 +19,23 @@
  @import 'font-awesome';
  
  
+ /* 高さを指定することにより画像が表示される */
+// topページのスライド
+#box{
+  height: 500px;
+}
+.image1 {
+  background-image: url(chokatsu.png);
+}
+.image2 {
+  background-image: url(chokatsu05.png);
+}
+.image3 {
+  background-image: url(chokatsu06.png);
+}
+
+
+// recipe/index
+.separate-intervals {
+  margin-bottom: 30px;
+}

@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :authenticate_user!, except: [:show,:index]
+  before_action :authenticate_user!, except: [:show, :index]
   def new
     @recipe = Recipe.new
     @recipe.materials.build # #親モデル.子モデル.buildで子モデルのインスタンス作成
@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user_id = current_user.id
     if @recipe.save
-     redirect_to recipe_path(@recipe.id)
+      redirect_to recipe_path(@recipe.id)
     else
       flash.now[:alert] = '項目を正しくを入力してください。'
       render "new"
@@ -24,7 +24,6 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @review = Review.new
     @reviews = @recipe.reviews.all.includes([:user])
-    
   end
 
   def edit
@@ -53,6 +52,6 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :count, :description,:work, :recipe_image, :user_id, materials_attributes: [:id, :ingredient, :amount, :_destroy])
+    params.require(:recipe).permit(:name, :count, :description, :work, :recipe_image, :user_id, materials_attributes: [:id, :ingredient, :amount, :_destroy])
   end
 end

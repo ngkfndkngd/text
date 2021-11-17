@@ -1,6 +1,6 @@
 class LogsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @log = Log.new
     @logs = current_user.logs
@@ -9,15 +9,15 @@ class LogsController < ApplicationController
   def create
     @log = Log.new(log_params)
     @log.save
-      redirect_to logs_path
+    redirect_to logs_path
   end
-  
+
   def show
     @log = Log.find(params[:id])
   end
 
   def edit
-     @log = Log.find(params[:id])
+    @log = Log.find(params[:id])
     if @log.user != current_user
       redirect_to log_path(@log)
     end
@@ -26,7 +26,7 @@ class LogsController < ApplicationController
   def update
     @log = Log.find(params[:id])
     @log.update(log_params)
-      redirect_to logs_path, notice: '変更が登録されました。'
+    redirect_to logs_path, notice: '変更が登録されました。'
   end
 
   def destroy
@@ -40,5 +40,4 @@ class LogsController < ApplicationController
   def log_params
     params.require(:log).permit(:record_status, :user_id, :start_time).merge(user_id: current_user.id)
   end
-
 end
