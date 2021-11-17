@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, except: [:show,:index]
+  
   def create
     review = Review.new(review_params)
     review.save

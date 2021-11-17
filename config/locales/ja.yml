@@ -8,7 +8,7 @@ ja:
   activerecord:
     errors:
       messages:
-        record_invalid: "なんかえらー"
+        record_invalid: "バリデーションに失敗しました。"
   date:
     formats:
       default: "%Y/%m/%d"

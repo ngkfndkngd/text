@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!, except: [:show,:index]
   def new
     @recipe = Recipe.new
     @recipe.materials.build # #親モデル.子モデル.buildで子モデルのインスタンス作成
@@ -7,8 +8,12 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user_id = current_user.id
-    @recipe.save!
-    redirect_to recipe_path(@recipe.id)
+    if @recipe.save
+     redirect_to recipe_path(@recipe.id)
+    else
+      flash.now[:alert] = '項目を正しくを入力してください。'
+      render "new"
+    end
   end
 
   def index
@@ -32,9 +37,10 @@ class RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
-      redirect_to recipe_path(@recipe.id), notice: 'You have creatad book successfully.'
+      redirect_to recipe_path(@recipe.id), notice: '変更が登録されました。'
     else
-      render :edit
+      flash.now[:alert] = '項目を正しくを入力してください。'
+      render "edit"
     end
   end
 

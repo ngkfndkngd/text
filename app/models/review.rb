@@ -3,6 +3,6 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :recipe
   
-  # バリデーション（カラの入力を無効に）
-# 　validates :review, presence: true
+  # バリデーション（コメントが空の入力を防ぐ）
+  validates :comment, presence: true
 end
