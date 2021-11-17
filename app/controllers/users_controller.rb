@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @user = current_user
-    @recipes = Recipe.where(user_id:current_user).order(created_at: :desc).page(params[:page]).per(7)
+    @recipes = Recipe.where(user_id: current_user).order(created_at: :desc).page(params[:page]).per(7)
     @favorites = Favorite.where(user_id: current_user.id).includes([:recipe])
   end
 
@@ -11,13 +13,17 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user.id)
-  end
-  
-   private
-
-    def user_params
-        params.require(:user).permit(:name, :email, :introduction, :profile_image)  
+    if @user.update(user_params)
+      redirect_to user_path(@user.id)
+    else
+      flash.now[:alert] = '入力してください。'
+      render "edit"
     end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email, :introduction, :profile_image)
+  end
 end

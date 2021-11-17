@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
+
   def create
     review = Review.new(review_params)
     review.save
@@ -16,6 +18,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-        params.require(:review).permit(:comment,:review_image).merge(user_id: current_user.id, recipe_id: params[:recipe_id])
+    params.require(:review).permit(:comment, :review_image).merge(user_id: current_user.id, recipe_id: params[:recipe_id])
   end
 end
