@@ -3,7 +3,7 @@
     <div class="col-4 offset-1">
       <h4 class="recipe_name"><%= @recipe.name %></h4>
       <div class="recipe_image">
-          <%= attachment_image_tag(@recipe, :recipe_image,:fill, 300, 300) %>
+          <%= attachment_image_tag @recipe, :recipe_image,:fill, 300, 300, %>
       </div>
     </div>
         <div class="col-4 offset-1">
