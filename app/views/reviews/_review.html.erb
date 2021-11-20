@@ -1,21 +1,23 @@
-<% reviews.each do |review| %>
-  <div class="col-3">
-    <div class="card h-100">
-      <%= attachment_image_tag review, :review_image, :fill, 300, 300, class:"card-img-review"; %></br>
-      <div class="col-10">
-        <p class="card-title">
-          <%= link_to user_path(review.user.id), class: "review-user-link" do %>
-            <span><i class="fas fa-user"></i><%= review.user.name %></span>
-          <% end%>
-        </p>
-        <p class="review-content"><%= review.comment %></p>
-        <p class="review-datetime"><%= review.created_at.strftime('%Y/%m/%d') %></p>
-        <% if review.user_id == current_user.id %>
-          <%= link_to recipe_review_path(review.recipe_id, review.id), method: :delete, remote: true, class: "delete-review-link" do %>
-            <i class="fas fa-trash"></i>
+<div class="card-deck">
+  <% reviews.each do |review| %>
+    <div class="col-3">
+      <div class="card h-100">
+        <%= attachment_image_tag review, :review_image, :fill, 300, 300, class:"card-img-review"; %></br>
+        <div class="col-10">
+          <p class="card-title">
+            <%= link_to user_path(review.user.id), class: "review-user-link" do %>
+              <span><i class="fas fa-user"></i><%= review.user.name %></span>
+            <% end%>
+          </p>
+          <p class="review-content"><%= review.comment %></p>
+          <p class="review-datetime"><%= review.created_at.strftime('%Y/%m/%d') %></p>
+          <% if review.user_id == current_user.id %>
+            <%= link_to recipe_review_path(review.recipe_id, review.id), method: :delete, remote: true, class: "delete-review-link" do %>
+              <i class="fas fa-trash"></i>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
