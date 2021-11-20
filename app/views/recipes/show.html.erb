@@ -1,2 +1,48 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-4 offset-1">
+      <h4 class="recipe_name"><%= @recipe.name %></h4>
+      <div class="recipe_image">
+          <%= attachment_image_tag(@recipe, :recipe_image,:fill, 300, 300) %>
+      </div>
+    </div>
+        <div class="col-4 offset-1">
+          <p class="name">
+           <span><i class="fas fa-user"></i><%= @recipe.user.name %></span>
+          </p>
+          <div id="bookmark_<%= @recipe.id %>">
+           <%= render "favorites/favorite", recipe: @recipe %>
+          </div>
+          <p>投稿日時：<%= @recipe.created_at.strftime('%Y/%m/%d') %></p>
+          <p>レビュー数: <%= @recipe.reviews.count %></p>
+          <h6 class="title">レシピ説明</h6>
+          <p><%= @recipe.work %></p>
+          <h4 class="title">
+            材料(<%= @recipe.count %>人分)
+          </h4>
+          <p class"list">
+            <%@recipe.materials.each do |m|%>
+              <strong><%= m.ingredient %></strong><small><%= m.amount %></small>
+            <%end%>
+          </p>
+        </div>
+  </div>
+  <div class="row">
+    <div class="col-8 offset-2">
+      <h4>作り方</h4>
+        <p class="list">
+          <%= @recipe.description %>
+        </p>
+        <% if user_signed_in? %>
+          <% if current_user.id != @recipe.user.id %>
+          <% else %>
+            <div class="recipe-btn">
+              <%= link_to "レシピ編集", edit_recipe_path(@recipe.id), class: "btn btn-warning recipe-edit" %>
+              <%= link_to "レシピ削除", recipe_path(@recipe.id), method:  :delete,data: {confirm: "本当に削除しますか？"}, class:  "btn btn-danger" %>
+            </div>
+          <% end %>
+        <% end %>
+    </div>
+  </div>
+  <%= render 'reviews' %>
+</div>
