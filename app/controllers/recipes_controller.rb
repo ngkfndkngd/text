@@ -23,7 +23,7 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
     @review = Review.new
-    @reviews = @recipe.reviews.all.includes([:user])
+    @reviews = @recipe.reviews.all.includes([:user]).order(created_at: :desc).limit(10)
   end
 
   def edit

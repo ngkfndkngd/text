@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-4 offset-1">
       <h4 class="recipe_name"><%= @recipe.name %></h4>
@@ -6,7 +6,7 @@
           <%= attachment_image_tag(@recipe, :recipe_image,:fill, 300, 300) %>
       </div>
     </div>
-        <div class="col-4 offset-1">
+        <div class="col-4">
           <p class="name">
            <span><i class="fas fa-user"></i><%= @recipe.user.name %></span>
           </p>
@@ -20,16 +20,19 @@
           <h4 class="title">
             材料(<%= @recipe.count %>人分)
           </h4>
-          <p class"list">
+          <p class="list">
             <%@recipe.materials.each do |m|%>
               <strong><%= m.ingredient %></strong><small><%= m.amount %></small>
             <%end%>
           </p>
         </div>
   </div>
-  <div class="row">
+  <div class="row mt-5">
     <div class="col-8 offset-2">
-      <h4>作り方</h4>
+      <div class="et_pb_module">
+         <button id="fuu" class='secList'><h4>作り方</h4></button>
+      </div>
+      <div class="fuu section">
         <p class="list">
           <%= @recipe.description %>
         </p>
@@ -42,6 +45,7 @@
             </div>
           <% end %>
         <% end %>
+      </div>
     </div>
   </div>
   <%= render 'reviews' %>

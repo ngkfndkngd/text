@@ -20,6 +20,8 @@
 //= require_tree .
 //= require cocoon
 
+
+document.addEventListener("turbolinks:load", function() {
 // オプションを指定してSkipprの実行
 /* global $*/
 
@@ -47,3 +49,32 @@ $(document).ready(function () {
     hidePrevious : false
   });
 });
+
+
+// $(function() {
+//   $('#slider').slick({
+//       dots: true, //スライドの下にドットのナビゲーションを表示
+//       autoplay: true, //自動再生
+//       autoplaySpeed: 4000, //再生スピード
+//   });
+// });
+
+
+
+
+
+$(function(){
+  $('.section').hide();
+
+  $('.secList').on('click',function(){
+    // クリックした要素の ID と違うクラス名のセクションを非表示
+    $('.section').not($('.'+$(this).attr('id'))).hide();
+    // toggle にすると、同じボタンを 2 回押すと非表示になる
+    $('.'+$(this).attr('id')).toggle();
+  });
+});
+
+
+
+
+})

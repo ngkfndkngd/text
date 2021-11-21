@@ -17,7 +17,14 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+ @import "slick-theme";
+ @import "slick";
 
+
+ * {
+   margin: 0;
+   padding: 0;
+ }
 
  /* 高さを指定することにより画像が表示される */
 // topページのスライド
@@ -38,4 +45,29 @@
 // recipe/index
 .separate-intervals {
   margin-bottom: 30px;
+}
+
+
+.slick-next {
+    right: 10px !important;
+    z-index: 100;
+ }
+
+.slick-prev {
+    left: 10px !important;
+  z-index: 100;
+ }
+
+ .card {
+    float: left;
+    padding: 20px 30px;
+    text-align: center;
+}
+
+.container-fluid{
+    background-color:#FFEFD5;
+}
+
+#slider {
+  display: none;
 }
