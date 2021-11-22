@@ -3,24 +3,25 @@
     <% reviews.each do |review| %>
       <li class="list-items recipe-review">
         <p>
-          <%= attachment_image_tag review, :review_image, :fill, 300, 300, class:"card-img-review"; %></br>
+          <%= attachment_image_tag review, :review_image, :fill, 200, 200, class:"card-img-review ml-5"; %>
         </p>
-        <p class="recipe-title">
-          <%= link_to user_path(review.user.id), class: "review-user-link" do %>
+        <p class="recipe-title mr-5">
+          <%= link_to user_path(review.user.id), class:"review-user-link" do %>
             <span><i class="fas fa-user"></i><%= review.user.name %></span>
           <% end%>
         </p>
-        <p class="review-content">
+        <p class="review-content mr-5">
           <%= review.comment %>
         </p>
-        <p class="review-datetime">
+        <p class="review-datetime mr-5">
           <%= review.created_at.strftime('%Y/%m/%d') %>
-        </p>
+          
         <% if review.user_id == current_user.id %>
           <%= link_to recipe_review_path(review.recipe_id, review.id), method: :delete, remote: true, class: "delete-review-link" do %>
             <i class="fas fa-trash"></i>
           <% end %>
         <% end %>
+        </p>
       </li>
     <% end %>
   </div>

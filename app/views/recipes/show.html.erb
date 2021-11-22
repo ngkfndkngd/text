@@ -1,21 +1,25 @@
 <div class="container-fluid-recipe">
   <div class="row">
-    <div class="col-4 offset-1">
-      <h4 class="recipe_name"><%= @recipe.name %></h4>
-      <div class="recipe_image">
+    <div class="col-4 offset-2">
+      <h4 class="recipe_name pl-5">
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-twitter-square"></i>
+        <i class="fab fa-facebook-square"></i>
+      </h4>
+      <h4 class="recipe_name pl-5 my-3"><%= @recipe.name %></h4>
+      <div class="recipe_image pl-5">
           <%= attachment_image_tag(@recipe, :recipe_image,:fill, 300, 300) %>
       </div>
     </div>
         <div class="col-4">
-          <p class="name">
+          <p class="name my-3">
            <span><i class="fas fa-user"></i><%= @recipe.user.name %></span>
           </p>
+          <p>投稿日時：<%= @recipe.created_at.strftime('%Y/%m/%d') %></p>
           <div id="bookmark_<%= @recipe.id %>">
            <%= render "favorites/favorite", recipe: @recipe %>
           </div>
-          <p>投稿日時：<%= @recipe.created_at.strftime('%Y/%m/%d') %></p>
-          <p>レビュー数: <%= @recipe.reviews.count %></p>
-          <h6 class="title">レシピ説明</h6>
+          <h5 class="title mt-3">レシピ説明</h5>
           <p><%= @recipe.work %></p>
           <% if user_signed_in? %>
           <% if current_user.id != @recipe.user.id %>
@@ -29,12 +33,14 @@
         </div>
   </div>
   <div class="row mt-5">
-    <div class="et_pb_module">
-      <button id="fuu" class='secList'><h4>作り方</h4></button>
+    <div class="col-5 offset-3">
+      <div class="et_pb_module">
+        <button id="fuu" class='secList'><h4>作り方</h4></button>
+      </div>
     </div>
   </div>
   <div class="row mt-5">
-      <div class="col-4">
+      <div class="col-4 offset-2">
         <div class="fuu section">
          <table class="table table-hover table-inverse">
             <thead>
@@ -53,7 +59,7 @@
           </table>
         </div>
       </div>
-      <div class="col-5">
+      <div class="col-4">
         <div class="fuu section">
           <table class="table table-hover table-inverse">
               <thead>
