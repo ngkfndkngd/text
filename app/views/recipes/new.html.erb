@@ -1,23 +1,23 @@
 <div class='container'>
   <div class="row">
     <div class="col-12">
-      <h2 class="row offset-1 my-5">レシピ投稿</h2>
+      <h2 class="row offset-5 my-5">レシピ投稿</h2>
         <%= form_with model:@recipe, url:recipes_path, local:true do |f| %>
-            <div class="row form-group col-8">
+            <div class="row form-group col-8 offset-2">
               <%= f.label :レシピ画像, class: "col-3" %>
               <%= f.attachment_field :recipe_image %>
             </div>
-            <div class="row form-group col-8">
+            <div class="row form-group col-8 offset-2">
               <%= f.label :レシピ名, class: "col-3" %>
-              <%= f.text_field :name, placeholder:"レシピ名", class: 'col-6 form-control' %>
+              <%= f.text_field :name, placeholder:"レシピ名", class: 'col-8 form-control' %>
             </div>
-            <div class="row form-group col-8">
+            <div class="row form-group col-8 offset-2">
               <%= f.label :レシピ説明, class: "col-3" %>
-              <%= f.text_field :work, placeholder:"レシピ説明", class: 'col-6 form-control' %>
+              <%= f.text_field :work, placeholder:"レシピ説明", class: 'col-8 form-control' %>
             </div>
-            <div class="row form-group col-8">
+            <div class="row form-group col-8 offset-2">
               <%= f.label :人分, class: "col-3" %>
-              <%= f.text_field :count, placeholder:"2人分", class: 'col-6 form-control' %>
+              <%= f.text_field :count, placeholder:"2人分", class: 'col-8 form-control' %>
             </div>
             <%= f.fields_for :materials do |m| %>
               <%= render "recipes/material_fields", f: m %>
@@ -25,12 +25,12 @@
 
             <div id="detail-association-insertion-point"></div>
 
-              <div class="offset-6 col-2 my-4">
+              <div class="offset-8 col-2 my-4">
                 <%= link_to_add_association "+フォームを追加", f, :materials, class: "btn btn-secondary btn-block" %>
               </div>
 
              <div id="detail-association-insertion-point"></div>
-            <div class="row form-group col-8">
+            <div class="row form-group col-8 offset-2">
               <%= f.label :作り方, class: "col-3" %>
               <%= f.text_area :description, placeholder:"作り方の入力", class: 'col-8 form-description' %>
             </div>
