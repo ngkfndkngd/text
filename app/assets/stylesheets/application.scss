@@ -46,25 +46,25 @@
 
 
 
-// aaaaaa
+// topページ
 .main-visual {
   width: 100%; /* 横幅いっぱい */
-  height: 500px; /* 高さ300px */
-  background-image: image-url("1.png");
-  background-position:center bottom;                     /* 画像の表示位置を指定 */
+  height: 400px; /* 高さ300px */
+  background-image: image-url("taitl.png");
+  background-position:center top;                     /* 画像の表示位置を指定 */
   background-size:cover;                                 /* 画像のサイズを指定  */
   
 }
 
-.box img {
-  width: 100px;       /* 適当な幅を指定 */
-  position: absolute; /* 相対位置に指定 */
-}
+// .box img {
+//   width: 100px;       /* 適当な幅を指定 */
+//   position: absolute; /* 相対位置に指定 */
+// }
 
-.main-visual-content {
-  width: 350px; /* 横幅350px */
-  height: 300px; /* 親の高さに揃える */
-}
+// .main-visual-content {
+//   width: 350px; /* 横幅350px */
+//   height: 300px; /* 親の高さに揃える */
+// }
 
 // recipe/index
 .separate-intervals {
