@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row mt-5">
     <div class="col-12">
       <div class="texts-wrapper">
@@ -8,8 +8,8 @@
               <div class="col-12">
                 <div class="card-deck">
                   <% @recipes.each do |recipe| %>
-                    <div class="col-3">
-                      <div class="separate-intervals">
+                    <div class="col-3 my-3">
+                      <!--<div class="separate-intervals">-->
                         <div class="card h-100">
                           <%= link_to recipe_path(recipe.id) do %>
                             <%= attachment_image_tag recipe, :recipe_image, :fill, 300, 300, class:"card-img-top"; %><br>
@@ -32,7 +32,7 @@
                             </div>
                           </div>
                         </div>
-                      </div>
+                      <!--</div>-->
                     </div>
                   <% end %>
                 </div>

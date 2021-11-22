@@ -14,17 +14,16 @@
 //= require popper
 //= require bootstrap-sprockets
 //
-//= require jquery
-//= require jquery_ujs
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
 //= require cocoon
 
-// オプションを指定してSkipprの実行
 /* global $*/
-
+document.addEventListener("turbolinks:load", function() {
+  
+// オプションを指定してSkipprの実行
 $(document).ready(function () {
   $("#images").skippr({
     // スライドショーの変化 ("fade" or "slide")
@@ -49,3 +48,38 @@ $(document).ready(function () {
     hidePrevious : false
   });
 });
+
+// 作り方クリック表示
+$(function(){
+  $('.section').hide();
+
+  $('.secList').on('click',function(){
+    // クリックした要素の ID と違うクラス名のセクションを非表示
+    $('.section').not($('.'+$(this).attr('id'))).hide();
+    // toggle にすると、同じボタンを 2 回押すと非表示になる
+    $('.'+$(this).attr('id')).toggle();
+  });
+});
+
+// タブメニュー
+$('#tab-contents .tab[id != "tab1"]').hide();
+
+$('#tab-menu a').on('click', function(event) {
+  $("#tab-contents .tab").hide();
+  $("#tab-menu .active").removeClass("active");
+  $(this).addClass("active");
+  $($(this).attr("href")).show();
+  event.preventDefault();
+});
+
+// //ページャーをクリックしたときの動作
+// $('.tab_sub li').click(function(){
+// //クリックしたページャーのindexを取得
+// var index = $('.inner.active .tab_sub li').index(this);
+ 
+// $('.inner.active .tab_sub li').removeClass('active');
+// $(this).addClass('active');
+// });
+
+
+})
