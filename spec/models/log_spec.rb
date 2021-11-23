@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Log,"モデルに関するテスト", type: :model do
+RSpec.describe Log, "モデルに関するテスト", type: :model do
   # describe 'バリデーションのテスト' do
   #   subject { log.valid?}
 

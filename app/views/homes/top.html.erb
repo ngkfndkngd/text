@@ -31,7 +31,9 @@
                             <% end %>
                           </p>
                           <p class="card-text">
-                              <span><i class="fas fa-user"></i> By <%= recipe.user.name %></span>
+                            <%= link_to user_path(recipe.user.id) do %>
+                              <span><i class="fas fa-user"></i><%= recipe.user.name %></span>
+                            <% end %>
                           </p>
                         </div>
                       </div>
@@ -68,7 +70,9 @@
                             <% end %>
                           </p>
                           <p class="card-text">
-                              <span><i class="fas fa-user"></i> By <%= recipe.user.name %></span>
+                            <%= link_to user_path(recipe.user.id) do %>
+                              <span><i class="fas fa-user"></i><%= recipe.user.name %></span>
+                            <% end %>
                           </p>
                         </div>
                       </div>

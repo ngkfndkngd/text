@@ -27,20 +27,34 @@
    box-sizing: border-box;
  }
 
+// バリデーション色設定
+#notice{
+  color: #006600;
+}
+
+#alert{
+  color: red;
+}
+
+#error_explanation {
+  color: red;
+}
+
+
  /* 高さを指定することにより画像が表示される */
 // topページのスライド
-#box{
-  height: 500px;
-}
-.image1 {
-  background-image: image-url("chokatsu.png");
-}
-.image2 {
-  background-image: image-url("chokatsu05.png");
-}
-.image3 {
-  background-image: image-url("chokatsu06.png");
-}
+// #box{
+//   height: 500px;
+// }
+// .image1 {
+//   background-image: image-url("chokatsu.png");
+// }
+// .image2 {
+//   background-image: image-url("chokatsu05.png");
+// }
+// .image3 {
+//   background-image: image-url("chokatsu06.png");
+// }
 
 
 
