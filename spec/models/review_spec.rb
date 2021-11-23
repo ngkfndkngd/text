@@ -2,9 +2,9 @@
 
 require 'rails_helper'
 
-RSpec.describe Review,"モデルに関するテスト", type: :model do
+RSpec.describe Review, "モデルに関するテスト", type: :model do
   describe 'バリデーションのテスト' do
-    subject { review.valid?}
+    subject { review.valid? }
 
     let(:user) { create(:user) }
     let!(:review) { build(:review, user_id: user.id) }
@@ -23,6 +23,7 @@ RSpec.describe Review,"モデルに関するテスト", type: :model do
         expect(Review.reflect_on_association(:user).macro).to eq :belongs_to
       end
     end
+
     context 'Recipeモデルとの関係' do
       it 'N:1となっている' do
         expect(Review.reflect_on_association(:recipe).macro).to eq :belongs_to

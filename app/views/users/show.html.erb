@@ -1,3 +1,6 @@
+<% if current_user != @user %>
+<%= render 'user_recipes', user: @user, userrecipes: @userrecipes %>
+<% else %>
 <div class="wrap">
   <div class='container-fluid'>
     <ul id="tab-menu">
@@ -5,7 +8,7 @@
       <li><a href="#tab2" class="">投稿レシピ</a></li>
       <li><a href="#tab3" class="">保存レシピ</a></li>
     </ul>
-      
+
     <div id="tab-contents">
       <div id="tab1" class="tab">
         <div class="row">
@@ -55,7 +58,7 @@
         </div>
       </div>
             <!--保存レシピ-->
-      <div id="tab3" class="tab"> 
+      <div id="tab3" class="tab">
         <div class="row">
           <div class="col-10 mt-4 offset-1">
             <div class="texts-wrapper">
@@ -82,3 +85,4 @@
     </div>
   </div>
 </div>
+<% end %>

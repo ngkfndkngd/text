@@ -8,6 +8,7 @@ class LogsController < ApplicationController
 
   def create
     @log = Log.new(log_params)
+    @log.user_id = current_user.id
     @log.save
     redirect_to logs_path
   end
@@ -25,6 +26,7 @@ class LogsController < ApplicationController
 
   def update
     @log = Log.find(params[:id])
+    @log.user_id = current_user.id
     @log.update(log_params)
     redirect_to logs_path, notice: '変更が登録されました。'
   end
@@ -38,6 +40,7 @@ class LogsController < ApplicationController
   private
 
   def log_params
-    params.require(:log).permit(:record_status, :user_id, :start_time).merge(user_id: current_user.id)
+    params.require(:log).permit(:record_status, :user_id, :start_time)
+    # .merge(user_id: current_user.id)
   end
 end
