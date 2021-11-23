@@ -15,10 +15,12 @@
         </p>
         <p class="review-datetime mr-5">
           <%= review.created_at.strftime('%Y/%m/%d') %>
-          
-        <% if review.user_id == current_user.id %>
-          <%= link_to recipe_review_path(review.recipe_id, review.id), method: :delete, remote: true, class: "delete-review-link" do %>
-            <i class="fas fa-trash"></i>
+        <% if user_signed_in? %>
+          <% if current_user.id != review.user_id %>
+          <% else %>
+            <%= link_to recipe_review_path(review.recipe_id, review.id), method: :delete, remote: true, class: "delete-review-link" do %>
+              <i class="fas fa-trash"></i>
+            <% end %>
           <% end %>
         <% end %>
         </p>
