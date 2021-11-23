@@ -1,48 +1,49 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h4>カレンダー</h4>
-        <div class="col-sm-8">
+      <h4 class="text-center">カレンダー</h4>
+        <div class="col-8 my-10">
           <h5><strong>今日の腸の状態は？</strong></h5>
         </div>
-            <%= form_with model:@log, url:logs_path, local:true do |f| %>
-              <!--<div class="col-2">-->
-                <%= f.radio_button :record_status, :fine, {checked: true} %>
-                <%= image_tag 'logo0.png', size: "150x100"%>
-              <!--</div>-->
-              <!--<div class="col-2">-->
-                <%= f.radio_button :record_status, :low , {} %>
-                <%= image_tag 'logo1.png', size: "150x100"%>
-              <!--</div>-->
-              <!--<div class="col-2">-->
-                <%= f.radio_button :record_status, :sick, {} %>
-                <%= image_tag 'logo3.png', size: "150x100"%>
-              <!--</div>-->
-              <div class="time">
-                <%= f.label :日時, class: "time_date" %>
-                <%= f.datetime_select :start_time %>
-              </div>
-              <div class="form-group">
-              <%= f.submit "登録", class: 'btn btn_success btn-lg offset-5' %>
-            </div>
-            <% end %>
-            <div class="calendar">
-              <%= month_calendar events: @logs do |date, logs| %>
-                <%= date.day %>
-              
-                <% logs.each do |log| %>
-                  <%= link_to log_path(log), class:"text-dark" do %>
-                     <% if log.record_status == "fine"  %>
-                       <div class"imag-status"><%= image_tag 'logo0.png', size: "150x100" %></div>
-                     <% elsif log.record_status == "low" %>
-                       <div class"imag-status"><%= image_tag 'logo1.png', size: "150x100"%></div>
-                     <% else %>
-                       <div class"imag-status"><%= image_tag 'logo3.png', size: "150x100" %></div>
-                     <% end %>
-                  <% end %>
-                <% end %>
-              <% end %>
-            </div>
+        <div class="row form-group col-8 my-4">
+        <%= form_with model:@log, url:logs_path, local:true do |f| %>
+          <%= f.radio_button :record_status, :fine, {checked: true} %>
+          <%= image_tag 'logo0.png', size: "150x100"%>
+            
+          <%= f.radio_button :record_status, :low , {} %>
+          <%= image_tag 'logo1.png', size: "150x100"%>
+
+          <%= f.radio_button :record_status, :sick, {} %>
+          <%= image_tag 'logo3.png', size: "150x100"%>
+        </div>
+        <div class="row form-group col-8 my-4">
+          <div class="time">
+            <%= f.label :日時, class: "time_date" %>
+            <%= f.datetime_select :start_time %>
+          </div>
+        </div>
+        <div class="row form-group col-8 offset-4 my-4">
+          <div class="form-group">
+            <%= f.submit "登録", class: 'btn btn_success btn-lg offset-5' %>
+          </div>
+        </div>
+        <% end %>
     </div>
+  </div>   
+  <div class="calendar">
+    <%= month_calendar events: @logs do |date, logs| %>
+      <%= date.day %>
+      <% logs.each do |log| %>
+        <%= link_to log_path(log), class:"text-dark" do %>
+          <% if log.record_status == "fine"  %>
+            <div class="imag-status"><%= image_tag 'logo0.png', size: "150x100" %></div>
+          <% elsif log.record_status == "low" %>
+            <div class="imag-status"><%= image_tag 'logo1.png', size: "150x100"%></div>
+          <% else %>
+            <div class="imag-status"><%= image_tag 'logo3.png', size: "150x100" %></div>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
 </div>

@@ -24,23 +24,61 @@
  * {
    margin: 0;
    padding: 0;
+   box-sizing: border-box;
  }
+
+// バリデーション色設定
+#notice{
+  color: #006600;
+}
+
+#alert{
+  color: red;
+}
+
+#error_explanation {
+  color: red;
+}
+
 
  /* 高さを指定することにより画像が表示される */
 // topページのスライド
-#box{
-  height: 500px;
-}
-.image1 {
-  background-image: image-url("chokatsu.png");
-}
-.image2 {
-  background-image: image-url("chokatsu05.png");
-}
-.image3 {
-  background-image: image-url("chokatsu06.png");
+// #box{
+//   height: 500px;
+// }
+// .image1 {
+//   background-image: image-url("chokatsu.png");
+// }
+// .image2 {
+//   background-image: image-url("chokatsu05.png");
+// }
+// .image3 {
+//   background-image: image-url("chokatsu06.png");
+// }
+
+
+
+
+
+// topページ
+.main-visual {
+  width: 100%; /* 横幅いっぱい */
+  height: 400px; /* 高さ300px */
+  background-image: image-url("taitl.png");
+  background-position:center top;                     /* 画像の表示位置を指定 */
+  background-size:cover;                                 /* 画像のサイズを指定  */
+  
 }
 
+// .box img {
+//   width: 100px;       /* 適当な幅を指定 */
+//   position: absolute; /* 相対位置に指定 */
+// }
+
+// .main-visual-content {
+//   width: 350px; /* 横幅350px */
+//   height: 300px; /* 親の高さに揃える */
+// }
 
 // recipe/index
 .separate-intervals {
@@ -64,10 +102,94 @@
     text-align: center;
 }
 
-.container-fluid{
+.container-fluid-recipe{
     background-color:#FFEFD5;
 }
 
 #slider {
   display: none;
+}
+
+
+// タブメニュー
+
+h1 {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.wrap {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#tab-menu {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+
+}
+
+#tab-menu li {
+  list-style-type: none;
+  width: 25%;
+}
+
+#tab-menu li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 20px;
+  text-align: center;
+  background: #000;
+  border: 1px solid #000;
+  border-bottom: none;
+}
+
+#tab-menu .active {
+  background: #fff;
+  color: #000;
+}
+
+#tab-contents {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#tab-contents .tab {
+  width: 100%;
+  padding: 30px;
+  // background: #fff;
+  // border: 1px solid #000;
+  border-top: none;
+}
+
+#tab-contents p {
+  color: #000;
+  line-height: 2.5;
+}
+
+// 作り方クリック表示
+.et_pb_module {
+  display: inline-block;
+  margin-left: 30px;
+  
+}
+
+
+.secList {
+  width: 600px;
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #67c5ff;
+  border: solid 2px #67c5ff;
+  border-radius: 3px;
+  transition: .4s;
+}
+  
+.secList:hover {
+  background: #67c5ff;
+  color: white;
 }

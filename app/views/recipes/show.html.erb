@@ -1,42 +1,29 @@
-<div class="container-fluid">
+<div class="container-fluid-recipe">
   <div class="row">
-    <div class="col-4 offset-1">
-      <h4 class="recipe_name"><%= @recipe.name %></h4>
-      <div class="recipe_image">
+    <div class="col-4 offset-2">
+      <h4 class="recipe_name pl-5">
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-twitter-square"></i>
+        <i class="fab fa-facebook-square"></i>
+      </h4>
+      <h4 class="recipe_name pl-5 my-3"><%= @recipe.name %></h4>
+      <div class="recipe_image pl-5">
           <%= attachment_image_tag(@recipe, :recipe_image,:fill, 300, 300) %>
       </div>
     </div>
         <div class="col-4">
-          <p class="name">
-           <span><i class="fas fa-user"></i><%= @recipe.user.name %></span>
+          <p class="name my-3">
+            <%= link_to user_path(@recipe.user.id) do %>
+              <span><i class="fas fa-user"></i><%= @recipe.user.name %></span>
+            <% end %>
           </p>
+          <p>投稿日時：<%= @recipe.created_at.strftime('%Y/%m/%d') %></p>
           <div id="bookmark_<%= @recipe.id %>">
            <%= render "favorites/favorite", recipe: @recipe %>
           </div>
-          <p>投稿日時：<%= @recipe.created_at.strftime('%Y/%m/%d') %></p>
-          <p>レビュー数: <%= @recipe.reviews.count %></p>
-          <h6 class="title">レシピ説明</h6>
+          <h5 class="title mt-3">レシピ説明</h5>
           <p><%= @recipe.work %></p>
-          <h4 class="title">
-            材料(<%= @recipe.count %>人分)
-          </h4>
-          <p class="list">
-            <%@recipe.materials.each do |m|%>
-              <strong><%= m.ingredient %></strong><small><%= m.amount %></small>
-            <%end%>
-          </p>
-        </div>
-  </div>
-  <div class="row mt-5">
-    <div class="col-8 offset-2">
-      <div class="et_pb_module">
-         <button id="fuu" class='secList'><h4>作り方</h4></button>
-      </div>
-      <div class="fuu section">
-        <p class="list">
-          <%= @recipe.description %>
-        </p>
-        <% if user_signed_in? %>
+          <% if user_signed_in? %>
           <% if current_user.id != @recipe.user.id %>
           <% else %>
             <div class="recipe-btn">
@@ -45,8 +32,52 @@
             </div>
           <% end %>
         <% end %>
+        </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-5 offset-3">
+      <div class="et_pb_module">
+        <button id="fuu" class='secList'><h4>作り方</h4></button>
       </div>
     </div>
   </div>
-  <%= render 'reviews' %>
+  <div class="row mt-5">
+      <div class="col-4 offset-2">
+        <div class="fuu section">
+         <table class="table table-hover table-inverse">
+            <thead>
+                <th>材料(<%= @recipe.count %>人分)</th>
+                <th></th>
+                <th colspan="3"></th>
+            </thead>
+            <tbody>
+              <%@recipe.materials.each do |m|%>
+              <tr>
+                <td><%= m.ingredient %></td>
+                <td><%= m.amount %></td>
+              </tr>
+              <%end%>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="fuu section">
+          <table class="table table-hover table-inverse">
+              <thead>
+                  <th>作り方</th>
+              </thead>
+              <tbody>
+
+                <tr>
+                  <td><%= simple_format @recipe.description %></td>
+
+                </tr>
+
+              </tbody>
+            </table>
+        </div>
+      </div>
+  </div>
+    <%= render 'reviews' %>
 </div>

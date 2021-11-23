@@ -2,9 +2,9 @@
 
 require 'rails_helper'
 
-RSpec.describe Recipe,"モデルに関するテスト", type: :model do
+RSpec.describe Recipe, "モデルに関するテスト", type: :model do
   describe 'バリデーションのテスト' do
-    subject { recipe.valid?}
+    subject { recipe.valid? }
 
     let(:user) { create(:user) }
     let!(:recipe) { build(:recipe, user_id: user.id) }
@@ -36,16 +36,19 @@ RSpec.describe Recipe,"モデルに関するテスト", type: :model do
         expect(Recipe.reflect_on_association(:user).macro).to eq :belongs_to
       end
     end
+
     context 'Materialモデルとの関係' do
       it '1:Nとなっている' do
         expect(Recipe.reflect_on_association(:materials).macro).to eq :has_many
       end
     end
+
     context 'Favoriteモデルとの関係' do
       it '1:Nとなっている' do
         expect(Recipe.reflect_on_association(:favorites).macro).to eq :has_many
       end
     end
+
     context 'Reviewモデルとの関係' do
       it '1:Nとなっている' do
         expect(Recipe.reflect_on_association(:reviews).macro).to eq :has_many

@@ -1,6 +1,10 @@
 <% if @recipe.favorited_by?(current_user) %>
-  <p><%= link_to "レシピ保存済", recipe_favorite_path(@recipe), method: :delete, remote: true %></p>
+  <p><i class="fas fa-heart"></i>
+  <%= link_to "レシピ保存済", recipe_favorite_path(@recipe), method: :delete, remote: true %>
+  </p>
 <% else %>
-  <p><%= link_to "レシピ保存", recipe_favorites_path(@recipe), method: :post, remote: true %></p>
+  <p><i class="far fa-heart"></i>
+  <%= link_to "レシピ保存", recipe_favorites_path(@recipe), method: :post, remote: true %>
+  </p>
 <% end %>
 
