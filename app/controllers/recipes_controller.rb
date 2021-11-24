@@ -52,6 +52,6 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :count, :description, :work, :recipe_image, :user_id, materials_attributes: [:id, :ingredient, :amount, :_destroy])
+    params.require(:recipe).permit(:name, :count, :description, :work, :recipe_image, :user_id, materials_attributes: [:id, :ingredient, :amount, :_destroy],tag_ids: [])
   end
 end

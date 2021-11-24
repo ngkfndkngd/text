@@ -7,6 +7,18 @@
       </div>
     </div>
    </div>
+   <div class="row">
+    <div class="col-12">
+      <% @tags.each do |tag| %>
+        <%= link_to tag_path(tag), class: "tag_item" do %>
+          <p class="tag_img"></p>
+          <p class="tag_name">
+           <%= tag.name %>
+          </p>
+        <% end %>
+      <% end %>
+    <div>
+   </div>
     <div class="texts-wrapper">
       <div class="contents-title text-center">
         <h4 class="my-1 ">新着レシピ</h4>
