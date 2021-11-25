@@ -19,7 +19,9 @@
         <% @tags.each do |tag| %>
           <li>
             <%= link_to tag_path(tag), class: "tag_item" do %>
-              <p class="category_img"></p>
+              <p class="category_img">
+                <%= attachment_image_tag tag, :tag_image, :fill, 300, 300, class:"card-img-top" %>
+              </p>
               <p class="category_name">
                 <%= tag.name %>
               </p>
@@ -27,7 +29,7 @@
           </li>
         <% end %>
       </ul>
-    </div>  
+    </div>
   </section>
    <!--<div class="row">-->
    <!-- <div class="col-12">-->
