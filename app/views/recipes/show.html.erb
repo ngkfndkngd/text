@@ -1,17 +1,25 @@
 <div class="container-fluid-recipe">
   <div class="row">
     <div class="col-4 offset-2">
-      <h4 class="recipe_name pl-5">
-        <i class="fab fa-instagram"></i>
-        <i class="fab fa-twitter-square"></i>
-        <i class="fab fa-facebook-square"></i>
-      </h4>
+      <% @recipe.tags.each do |tag| %>
+       <%= link_to tag_path(tag), class: "tag_item" do %>
+          <p class="tag_img"></p>
+          <p class="tag_name">
+           <%= tag.name %>
+          </p>
+        <% end %>
+      <% end %>
       <h4 class="recipe_name pl-5 my-3"><%= @recipe.name %></h4>
       <div class="recipe_image pl-5">
           <%= attachment_image_tag(@recipe, :recipe_image,:fill, 300, 300) %>
       </div>
     </div>
         <div class="col-4">
+          <h4 class="recipe_name pl-5">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter-square"></i>
+            <i class="fab fa-facebook-square"></i>
+          </h4>
           <p class="name my-3">
             <%= link_to user_path(@recipe.user.id) do %>
               <span><i class="fas fa-user"></i><%= @recipe.user.name %></span>

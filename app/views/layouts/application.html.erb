@@ -6,12 +6,12 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    
+
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+
   </head>
 
   <body>
@@ -41,6 +41,13 @@
                 <li class="nav-item mr-1"><%= link_to "ログイン", new_user_session_path, class: "nav-link " %></li>
               <% end %>
             </ul>
+            <div class="row ml-auto mr-1">
+              <%= form_with url: search_path, method: :get, class: "search form-inline", local: true do |f| %>
+                <%= f.text_field 'search[value]', placeholder:"レシピ検索", class: "search_form" %>
+                <%= f.hidden_field 'search[how]', value: "partical" %>
+                <%= f.submit "検索", class: "btn" %>
+              <% end %>
+            </div>
           </div>
         </div>
       </nav>

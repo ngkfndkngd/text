@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+      <% if @datas.empty?%>
+      <div class="col-12 my-4 text-center">
+        <h2>該当するレシピはありません</h2>
+      </div>
+      <% end %>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>レシピ画像</th>
+          <th>タイトル</th>
+          <th>作成者名</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @datas.each do |data| %>
+        <tr>
+          <td><%= attachment_image_tag data, :recipe_image, size: "130x100", class: "img_hover" %></td>
+          <td>
+            <%= link_to recipe_path(data.id) do %>
+            <%= data.name %>
+            <% end %>
+          </td>
+          <% link_to %>
+          <td><%= link_to user_path(data.user.id) do %>
+                <span><i class="fas fa-user"></i><%= data.user.name %></span>
+              <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</div>

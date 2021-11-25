@@ -3,6 +3,17 @@
     <div class="col-12">
       <h2 class="row offset-5 my-5">レシピ投稿</h2>
         <%= form_with model:@recipe, url:recipes_path, local:true do |f| %>
+          <div class="row form-group col-8 offset-2">
+            <div class="check_box">
+              <span>タグ</span>
+                <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+                  <%= tag.label do %>
+                    <%= tag.check_box %>
+                    <%= tag.text %>
+                  <% end %>
+                <% end %>
+            </div>
+          </div>
             <div class="row form-group col-8 offset-2">
               <%= f.label :レシピ画像, class: "col-3" %>
               <%= f.attachment_field :recipe_image %>
