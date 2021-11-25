@@ -7,18 +7,42 @@
       </div>
     </div>
    </div>
-   <div class="row">
-    <div class="col-12">
-      <% @tags.each do |tag| %>
-        <%= link_to tag_path(tag), class: "tag_item" do %>
-          <p class="tag_img"></p>
-          <p class="tag_name">
-           <%= tag.name %>
-          </p>
+   <section class="category_wrapper">
+    <h1 class="category_section_title">
+      〜Category〜
+    </h1>
+    <p class="secition_title_kana">
+      カテゴリーから探す
+    </p>
+    <div class="category_list">
+      <ul>
+        <% @tags.each do |tag| %>
+          <li>
+            <%= link_to tag_path(tag), class: "tag_item" do %>
+              <p class="category_img"></p>
+              <p class="category_name">
+                <%= tag.name %>
+              </p>
+            <% end %>
+          </li>
         <% end %>
-      <% end %>
-    <div>
-   </div>
+      </ul>
+    </div>  
+  </section>
+   <!--<div class="row">-->
+   <!-- <div class="col-12">-->
+   <!--   <div class="tag_box">-->
+   <!--   -->
+   <!--     -->
+   <!--       <p class="tag_img"></p>-->
+   <!--       <p class="tag_name">-->
+   <!--        -->
+   <!--       </p>-->
+   <!--    -->
+   <!--   -->
+   <!--   </div>-->
+   <!-- </div>-->
+   <!--</div>-->
     <div class="texts-wrapper">
       <div class="contents-title text-center">
         <h4 class="my-1 ">新着レシピ</h4>

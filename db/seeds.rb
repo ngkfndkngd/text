@@ -6,11 +6,26 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Tag.create!([
-    { name: '発酵食品' },
-    { name: '海藻類' },
-    { name: '穀物類'},
-    { name: 'きのこ類'},
-    { name: '野菜類'},
-    { name: '簡単レシピ'}
-    ])
+
+    Tag.create!(
+  [
+    {
+      name: '発酵食品',
+    },
+    {
+      name: '海藻類',
+    },
+    {
+      name: '穀物類',
+    },
+    {
+      name: 'きのこ類',
+    },
+    {
+      name: '野菜類',
+    },
+    {
+      name: '簡単レシピ',
+    }
+  ]
+)
