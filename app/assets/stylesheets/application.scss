@@ -40,137 +40,23 @@
   color: red;
 }
 
+// 検索
 
- /* 高さを指定することにより画像が表示される */
-// topページのスライド
-// #box{
-//   height: 500px;
-// }
-// .image1 {
-//   background-image: image-url("chokatsu.png");
-// }
-// .image2 {
-//   background-image: image-url("chokatsu05.png");
-// }
-// .image3 {
-//   background-image: image-url("chokatsu06.png");
-// }
-
-
-
-// .box img {
-//   width: 100px;       /* 適当な幅を指定 */
-//   position: absolute; /* 相対位置に指定 */
-// }
-
-// .main-visual-content {
-//   width: 350px; /* 横幅350px */
-//   height: 300px; /* 親の高さに揃える */
-// }
-
-
-
-// tag.top
-.tag_item{
-  float: left;
-  list-style: none;
-  margin-right: 30px;
+.search {
+ position: relative;
+ background-color: #fff;
+ border: 1px solid #aaa;
 }
 
-// .tag_img {
-//     width: 300px;
-//     height: 200px;
-//     background-image: image-url('no_image/no_image.jpg');
-//     background-size: cover;
+.search_form {
+ padding:8px 0 8px 8px;
+ border:none;
+}
+
+// .btn {
+//     background: none;
+//     border: none;
+//     border-radius: 0;
+//     outline: none;
 // }
 
-
-
-//category_index
-
-.category_wrapper {
-    border-top: 5px dotted #8b4513;
-    padding-bottom: 50px;
-}
-
-
-.category_wrapper ul:after {
-    content: "";
-    display: block;
-    clear: both;
-
-}
-
-.category_wrapper ul {
-    margin: 0 120px;
-}
-
-.category_section_title {
-    font-size: 60px;
-    text-align: center;
-    margin: 20px;
-}
-
-.secition_title_kana {
-    text-align: center;
-    margin-top: -10px;
-    margin-bottom: 50px;
-}
-
-.category_wrapper p:nth-of-type(2) {
-    text-align: center;
-    color: #000;
-    font-size: 20px;
-}
-
-
-
-.category_list li {
-    float: left;
-    margin-bottom: 20px;
-}
-
-.category_img {
-    width: 300px;
-    height: 200px;
-
-    background-size: cover;
-}
-
-
-
-// .category_list>ul>li:nth-of-type(1)>.category_item>.category_img {
-//     background-image: image-url('logo3.png');
-// }
-
-// .category_list>ul>li:nth-of-type(2)>.category_item>.category_img {
-//     background-image: image-url('tag2.png');
-// }
-
-// .category_list>ul>li:nth-of-type(3)>.category_item>.category_img {
-//     background-image: image-url('tag3.png');
-// }
-
-// .category_list>ul>li:nth-of-type(4)>.category_item>.category_img {
-//     background-image: image-url('tag4.jpeg');
-// }
-
-// .category_list>ul>li:nth-of-type(5)>.category_item>.category_img {
-//     background-image: image-url('tag5.jpeg');
-// }
-
-// .category_list>ul>li:nth-of-type(6)>.category_item>.category_img {
-//     background-image: image-url('tag6.png');
-// }
-
-
-
-.category_wrapper li:hover .category_img {
-    transform: scale(1.5);
-    transition: 0.5s;
-    border: 3px solid #ffd700;
-}
-
-.category_item:hover {
-    text-decoration: none;
-}

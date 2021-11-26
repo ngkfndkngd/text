@@ -7,44 +7,30 @@
       </div>
     </div>
    </div>
-   <section class="category_wrapper">
-    <h1 class="category_section_title">
-      〜Category〜
-    </h1>
-    <p class="secition_title_kana">
-      カテゴリーから探す
-    </p>
-    <div class="category_list">
-      <ul>
-        <% @tags.each do |tag| %>
-          <li>
-            <%= link_to tag_path(tag), class: "tag_item" do %>
-              <p class="category_img">
-                <%= attachment_image_tag tag, :tag_image, :fill, 300, 300, class:"card-img-top" %>
-              </p>
-              <p class="category_name">
+   
+  <div class="texts-wrapper">
+    <div class="contents-title text-center">
+      <h1 class="tag_title">
+        レシピカテゴリー
+      </h1>
+      <div class="row">
+        <div class="col-12">
+          <div class="tag_box">
+            <% @tags.each do |tag| %>
+              <%= link_to tag_path(tag), class: "tag_item" do %>
+                <p class="tag_img">
+                 <%= attachment_image_tag tag, :tag_image, :fill, 200, 200, class:"tag_img-top" %>
+                </p>
+                <p class="tag_name">
                 <%= tag.name %>
-              </p>
+                </p>
+              <% end %>
             <% end %>
-          </li>
-        <% end %>
-      </ul>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
-   <!--<div class="row">-->
-   <!-- <div class="col-12">-->
-   <!--   <div class="tag_box">-->
-   <!--   -->
-   <!--     -->
-   <!--       <p class="tag_img"></p>-->
-   <!--       <p class="tag_name">-->
-   <!--        -->
-   <!--       </p>-->
-   <!--    -->
-   <!--   -->
-   <!--   </div>-->
-   <!-- </div>-->
-   <!--</div>-->
+  </div>
     <div class="texts-wrapper">
       <div class="contents-title text-center">
         <h4 class="my-1 ">新着レシピ</h4>

@@ -2,7 +2,7 @@ class SearchsController < ApplicationController
   def search                              # form_withを設置しているviewからユーザーが検索を実行
     @value = params['search']['value']    # @valueにviewから送られてきた検索ワードを格納
     @how = params['search']['how']        # @howにviewから送られてきた検索方法(完全一致など)を格納
-    @datas = search_for(@how,@value)      # search_forメソッドを実行(引数に検索ワードと検索方法)
+    @datas = search_for(@how,@value).page(params[:page]).per(5)       # search_forメソッドを実行(引数に検索ワードと検索方法)
   end
   
   private
