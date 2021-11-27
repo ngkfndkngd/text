@@ -19,13 +19,51 @@
  @import 'font-awesome';
  @import "slick-theme";
  @import "slick";
-
+ @import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap');
 
  * {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
+   font-family: 'M PLUS 1p', sans-serif;
  }
+
+// ロゴ
+h5{
+  font-family: 'Montserrat Subrayada', sans-serif;
+}
+
+
+h5 {
+  position: relative;
+  padding: 1em 2em;
+  text-align: center;
+}
+
+h5:before,
+h5:after {
+  position: absolute;
+  content: '';
+}
+
+h5:after {
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  border-top: 2px solid #000;
+  border-left: 2px solid #000;
+}
+
+h5:before {
+  right: 0;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
 
 // バリデーション色設定
 #notice{
@@ -53,10 +91,24 @@
  border:none;
 }
 
-// .btn {
-//     background: none;
-//     border: none;
-//     border-radius: 0;
-//     outline: none;
-// }
+.link-recipe {
+    text-align: center;
+    color: #000;
+    font-size: 20px;
+}
 
+.log-taitl {
+  position: relative;
+  padding: 1rem 2rem;
+  border: 4px solid #000;
+}
+
+.log-taitl:before {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  content: '';
+  border: 4px dotted #000;
+}

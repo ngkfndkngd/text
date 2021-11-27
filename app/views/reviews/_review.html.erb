@@ -5,15 +5,15 @@
         <p>
           <%= attachment_image_tag review, :review_image, :fill, 200, 200, class:"card-img-review ml-5"; %>
         </p>
-        <p class="recipe-title mr-5">
+        <p class="recipe-title ml-3">
           <%= link_to user_path(review.user.id), class:"review-user-link" do %>
             <span><i class="fas fa-user"></i><%= review.user.name %></span>
           <% end%>
         </p>
-        <p class="review-content mr-5">
+        <p class="review-content ml-3">
           <%= review.comment %>
         </p>
-        <p class="review-datetime mr-5">
+        <p class="review-datetime ml-3">
           <%= review.created_at.strftime('%Y/%m/%d') %>
         <% if user_signed_in? %>
           <% if current_user.id != review.user_id %>

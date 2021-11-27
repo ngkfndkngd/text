@@ -1,21 +1,23 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h4 class="text-center">カレンダー</h4>
+      <div class="col-4 offset-4 text-center my-4">
+      <h3 class="log-taitl">カレンダー</h3>
+      </div>
         <div class="col-8 my-10">
-          <h5><strong>今日の腸の状態は？</strong></h5>
+          <h4><strong>今日の腸の状態は？</strong></h4>
         </div>
         <div class="row form-group col-8 my-4">
           <%= form_with model:@log, url:log_path, local:true do |f| %>
             <%= f.radio_button :record_status, :fine, {checked: true} %>
               <%= image_tag 'logo0.png', size: "150x100"%>
-              
+
               <%= f.radio_button :record_status, :low , {} %>
               <%= image_tag 'logo1.png', size: "150x100"%>
-              
+
               <%= f.radio_button :record_status, :sick, {} %>
               <%= image_tag 'logo3.png', size: "150x100"%>
-                
+
               <div class="row form-group col-10 my-4">
                 <div class="time">
                   <%= f.label :日時, class: "time_date" %>
@@ -24,7 +26,7 @@
               </div>
               <div class="row form-group col-8 offset-4 my-4">
                 <div class="form-group">
-                <%= f.submit "変更", class: 'btn btn_success btn-lg offset-5' %>
+                <%= f.submit "変更", class: 'btn btn-outline-secondary offset-5' %>
                 </div>
               </div>
           <% end %>

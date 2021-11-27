@@ -31,19 +31,10 @@
     text-align: center;
 }
 
+
 .container-fluid-recipe{
     background-color:#FFEFD5;
 }
-
-
-
-
-.recipe-box-left{
-  text-align: center;
-}
-
-
-
 
 
 #slider {
@@ -51,17 +42,18 @@
 }
 
 
-
+// recipe/show
 // 作り方クリック表示
 .et_pb_module {
   display: inline-block;
   margin-left: 30px;
+  margin-top: 10px;
 
 }
 
 
 .secList {
-  width: 600px;
+  width: 700px;
   display: inline-block;
   padding: 0.3em 1em;
   text-decoration: none;
@@ -74,4 +66,35 @@
 .secList:hover {
   background: #67c5ff;
   color: white;
+}
+
+
+
+.favorite-title{
+  width: 150px;
+  border-bottom: 2px dashed #000;
+}
+.recipe_title {
+  width: 100px;
+  border-bottom: 2px dashed #000;
+}
+
+.recipe_work {
+  position: relative;
+  padding: 1.5rem 2rem;
+  border: 3px solid #d8d8d8;
+  border-radius: 10px;
+  background: #f9f9f9;
+}
+
+.review-user-link{
+  text-align: center;
+  color: #000;
+  font-size: 20px;
+}
+
+.review-taitl {
+  padding: 1rem 1rem;
+  border-top: 2px dotted #000;
+  border-bottom: 2px dotted #000;
 }

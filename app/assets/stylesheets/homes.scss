@@ -11,10 +11,16 @@
   background-image: image-url("taitl.png");
   background-position:center top;                     /* 画像の表示位置を指定 */
   background-size:cover;                                 /* 画像のサイズを指定  */
-  
+
 }
 
+
 // トップタグ
+.tag-body{
+  border-top: 5px dotted #8b4513;
+  padding-bottom: 50px;
+  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+}
 
 .tag_item{
   float: left;
@@ -29,3 +35,17 @@
 }
 
 
+
+.fa-crown {
+  color: 	#FFD700;
+  font-size: 3em;  /* ← アイコン全体の大きさをここで変更できる */
+}
+
+.icon_layers_text{
+	position: absolute;
+	left: 0;
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	font-size: 25px;
+}
