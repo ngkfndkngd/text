@@ -8,21 +8,24 @@
     <div class="col-5 mt-4 offset-4">
       <div class"log-condition">
         <% if @log.record_status == "fine"  %>
-          <div class"imag-status"><%= image_tag 'logo0.png', size: "150x100" %></div>
+          <div class"imag-status"><%= image_tag 'logo0.png', size: "150x100", class:"col-5 offset-2" %></div>
           <h3 class="log-text my-4">その調子で頑張ろう！！</h3>
         <% elsif @log.record_status == "low" %>
-          <div class"imag-status"><%= image_tag 'logo1.png', size: "150x100"%></div>
+          <div class"imag-status"><%= image_tag 'logo1.png', size: "150x100", class:"col-5 offset-2"%></div>
           <h3 class="log-text my-4">おすすめレシピで綺麗習慣！</h3>
         <% else %>
-          <div class"imag-status"><%= image_tag 'logo3.png', size: "150x100" %></div>
+          <div class"imag-status"><%= image_tag 'logo3.png', size: "150x100", class:"col-5 offset-2" %></div>
           <h3 class="log-text my-4">腸を温めて、休息をとろう！</h3>
         <% end %>
       </div>
+      <p>
+       <strong>時間</strong><%= @log.start_time.strftime("%Y-%m-%d %H:%M") %>
+      </p>
     </div>
     <div class="col-5 mt-4 offset-4">
       <div class="link">
-        <%= link_to '編集', edit_log_path(@log.id), class:"link btn btn_success" %>
-        <%= link_to '削除', log_path(@log.id), method:  :delete, data: {confirm: "本当に削除しますか？"}, class:"link btn btn_success" %>
+        <%= link_to '編集', edit_log_path(@log.id), class:"btn btn-outline-secondary col-3 offset-1" %>
+        <%= link_to '削除', log_path(@log.id), method:  :delete, data: {confirm: "本当に削除しますか？"}, class:"btn btn-outline-danger col-3 offset-1" %>
       </div>
     </div>
     </div>
