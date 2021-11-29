@@ -3,7 +3,7 @@ class LogsController < ApplicationController
 
   def index
     @log = Log.new
-    @logs = Log.all
+    @logs = current_user.logs
   end
 
   def create
