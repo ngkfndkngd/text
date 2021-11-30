@@ -1,4 +1,5 @@
 # Let's chokatsu
+- URL:http://chokatsu.xyz/
 
 ## サイト概要
 腸活の日々の記録、<br>
@@ -21,7 +22,7 @@
 腸内細菌には体に良いはたらきをする「善玉菌」、体に悪いはたらきをする「悪玉菌」、そのどちらでもない「日和見菌」の3種類に大別されます。<br>
 腸内環境の良し悪しはこれらの腸内細菌の量のバランスが重要になってきます。<br>
 いざ、腸内に良いという食べ物（ヨーグルトやキャベツ）を摂取しても毎日同じものを食べ続けるのは難しく、長続きしませんでした。<br>
-私と同じように悩むユーザーがいるのではないかと考え、腸内環境によい食品だけでなく、美味しく簡単につくれる料理情報＋日々に腸内環境を記録することで、何を食べたら改善されるかが分かりやすいサイトを作りたいと考えました。
+私と同じように悩むユーザーがいるのではないかと考え、腸内環境によい食品だけでなく、美味しく簡単につくれる料理情報＋日々に腸内環境を記録できる分かりやすいサイトを作りたいと考えました。
 
 
 ### ターゲットユーザ
@@ -56,6 +57,43 @@
 - フレームワーク：Ruby on Rails<br>
 - JSライブラリ：jQuery<br>
 - IDE：Cloud9<br>
+
+##gem一覧
+###デバック
+gem 'pry-byebug'</br>
+gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]</br>
+
+###ログイン機能
+gem 'devise'</br>
+
+###レイアウト
+gem 'bootstrap', '~> 4.5'</br>
+gem 'bootstrap', '~> 4.5'</br>
+gem 'jquery-rails'</br>
+gem 'font-awesome-sass', '~> 5.13'</br>
+
+###動的フォーム実装機能
+gem 'cocoon'</br>
+gem "enum_help"</br>
+gem "simple_calendar", "~> 2.0"</br>
+
+###画像投稿機能
+gem "refile", require: "refile/rails", github: 'manfe/refile'</br>
+gem "refile-mini_magick"</br>
+
+###ページネーション機能
+gem 'kaminari', '~> 1.2.1'</br>
+
+###バリデーション日本語化
+gem 'devise-i18n'</br>
+gem 'devise-i18n-views'</br>
+
+###デプロイ
+gem 'dotenv-rails'</br>
+group :production do</br>
+  gem 'mysql2'</br>
+end</br>
+
 
 ## 使用素材
 - https://pixabay.com/ja/
