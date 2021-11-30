@@ -68,7 +68,6 @@ gem 'devise'</br>
 
 ###レイアウト
 gem 'bootstrap', '~> 4.5'</br>
-gem 'bootstrap', '~> 4.5'</br>
 gem 'jquery-rails'</br>
 gem 'font-awesome-sass', '~> 5.13'</br>
 
