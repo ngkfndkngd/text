@@ -58,36 +58,36 @@
 - JSライブラリ：jQuery<br>
 - IDE：Cloud9<br>
 
-##gem一覧
-###デバック
+## gem一覧
+### デバック
 gem 'pry-byebug'</br>
 gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]</br>
 
-###ログイン機能
+### ログイン機能
 gem 'devise'</br>
 
-###レイアウト
+### レイアウト
 gem 'bootstrap', '~> 4.5'</br>
 gem 'jquery-rails'</br>
 gem 'font-awesome-sass', '~> 5.13'</br>
 
-###動的フォーム実装機能
+### 動的フォーム実装機能
 gem 'cocoon'</br>
 gem "enum_help"</br>
 gem "simple_calendar", "~> 2.0"</br>
 
-###画像投稿機能
+### 画像投稿機能
 gem "refile", require: "refile/rails", github: 'manfe/refile'</br>
 gem "refile-mini_magick"</br>
 
-###ページネーション機能
+### ページネーション機能
 gem 'kaminari', '~> 1.2.1'</br>
 
-###バリデーション日本語化
+### バリデーション日本語化
 gem 'devise-i18n'</br>
 gem 'devise-i18n-views'</br>
 
-###デプロイ
+### デプロイ
 gem 'dotenv-rails'</br>
 group :production do</br>
   gem 'mysql2'</br>
