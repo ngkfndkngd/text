@@ -1,7 +1,6 @@
 # Let's chokatsu
 - URL:http://chokatsu.xyz/
 
-
 # PC版
 <img width="1440" alt="スクリーンショット 2021-12-01 22 49 47" src="https://user-images.githubusercontent.com/88532413/144246459-9bea0f0e-40f8-4c0c-8eee-6012f185e20b.png">
 
