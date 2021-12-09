@@ -1,5 +1,10 @@
 # Let's chokatsu
 - URL:http://chokatsu.xyz/
+ 
+
+
+
+
 
 
 # PC版
