@@ -4,19 +4,19 @@
       <h2 class="row offset-5 my-5">マイページ編集</h2>
         <%= form_with model:@user, url:user_path, local:true do |f| %>
             <div class="row form-group col-8 offset-3">
-              <%= f.label :画像, class: "col-2" %>
+              <%= f.label :画像, class: "col-lg-2 col-12" %>
               <%= f.attachment_field :profile_image %>
             </div>
             <div class="row form-group col-8 offset-3">
-              <%= f.label :名前, class: "col-2" %>
-              <%= f.text_field :name, placeholder:"名前", class: 'col-6 form-control' %>
+              <%= f.label :名前, class: "col-lg-2 col-12" %>
+              <%= f.text_field :name, placeholder:"名前", class: 'col-lg-6 col-12 form-control' %>
             </div>
             <div class="row form-group col-8 offset-3">
-              <%= f.label :自己紹介文, class: "col-2" %>
-              <%= f.text_field :introduction, placeholder:"レシピ説明", class: 'col-6 form-control' %>
+              <%= f.label :自己紹介文, class: "col-lg-2 col-12" %>
+              <%= f.text_field :introduction, placeholder:"レシピ説明", class: 'col-lg-6 col-12 form-control' %>
             </div>
             <div class="form-group">
-              <%= f.submit "登録", class: 'btn btn-outline-secondary col-2 offset-5' %>
+              <%= f.submit "登録", class: 'user-botn btn btn-outline-secondary col-lg-2 col-8 offset-5' %>
             </div>
         <% end %>
     </div>

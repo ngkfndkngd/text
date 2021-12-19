@@ -117,3 +117,70 @@ h5:before {
 .pagination>li>a:hover {
   border-radius: 15px !important;  /*角を丸くする*/
 }
+
+
+// /* スマホ表示時 */
+// @media (max-width: 500px) {
+//   img {
+//   max-width: 100%;
+//   }
+
+
+//   .tag_img{
+//     margin-left: 50px;
+//   }
+
+//   .tag_name{
+//     margin-left: 50px;
+//   }
+
+
+// }
+
+
+// // user スマホ対応
+// @media (max-width: 500px) {
+
+//   .wrap {
+//   max-width: 100%;
+//   }
+
+//   #tab-contents .tab {
+//     padding: 0px;
+//   }
+
+//   .profile-image {
+//     width: 200px;
+//     height: 200px;
+//   }
+
+//   .offset-1 {
+//   margin-left: 0px;
+//   }
+//   .offset-2 {
+//     margin-left: 0px;
+//   }
+
+
+//   a {
+//     font-size: 10px;
+//   }
+
+//   .offset-5 {
+//     margin-left: 15%;
+//   }
+//   .offset-3 {
+//   margin-left: 15%;
+//   }
+
+//   .user-botn{
+//     width: 50%;
+//     margin-left: 25%;
+//   }
+
+//   .link-edit{
+//     margin: 0px;
+//   }
+// }
+
+

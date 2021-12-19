@@ -19,7 +19,7 @@
             <% @tags.each do |tag| %>
               <%= link_to tag_path(tag), class: "tag_item" do %>
                 <p class="tag_img">
-                 <%= attachment_image_tag tag, :tag_image, :fill, 200, 200, class:"tag_img-top" %>
+                 <%= attachment_image_tag tag, :tag_image, class:"tag_img-top center-block" %>
                 </p>
                 <p class="tag_name">
                 <%= tag.name %>

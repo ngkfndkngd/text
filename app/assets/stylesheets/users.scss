@@ -61,3 +61,49 @@ h1 {
   color: #000;
   line-height: 2.5;
 }
+
+// user スマホ対応
+@media screen and (max-width: 500px) {
+
+  // .wrap {
+  // max-width: 100%;
+  // }
+
+  #tab-contents .tab {
+    padding: 0px;
+  }
+
+  // .profile-image {
+  //   width: 200px;
+  //   height: 200px;
+  // }
+
+  // .offset-1 {
+  // margin-left: 0px !important;
+  // }
+  // .offset-2 {
+  //   margin-left: 0px !important;
+  // }
+
+
+  a {
+    font-size: 10px;
+  }
+
+  // .offset-5 {
+  //   margin-left: 15%;
+  // }
+  // .offset-3 {
+  // margin-left: 15%;
+  // }
+
+  // .user-botn{
+  //   width: 50%;
+  //   margin-left: 25%;
+  // }
+
+  // .link-edit{
+  //   margin: 0px;
+  // }
+}
+

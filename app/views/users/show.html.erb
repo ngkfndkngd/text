@@ -12,10 +12,10 @@
     <div id="tab-contents">
       <div id="tab1" class="tab">
         <div class="row">
-          <div class="col-2 mt-4 offset-2">
-            <%= attachment_image_tag @user, :profile_image, size:"100x100", format:'jpeg', fallback:"no_image.jpg" %>
+          <div class="col-lg-2 col-12 mt-4 offset-2">
+            <%= attachment_image_tag @user, :profile_image, format:'jpeg', fallback:"no_image.jpg", class:"img-fluid mx-auto" %>
           </div>
-          <div class="col-5 offset-1 mt-4 mr-auto">
+          <div class="col-lg-5 col-12 offset-1 mt-4 mr-auto">
             <table class="table">
               <tr>
                 <th>name</th>
@@ -26,8 +26,8 @@
                 <th><%= @user.introduction %></th>
               </tr>
             </table>
-            <div class="link-edit">
-              <%= link_to '編集', edit_user_path(@user.id), class:"link btn btn_success" %>
+            <div class="link-edit row offset-2">
+              <%= link_to '編集', edit_user_path(@user.id), class:"btn btn_success" %>
             </div>
           </div>
         </div>
@@ -35,7 +35,7 @@
               <!--投稿レシピ-->
       <div id="tab2" class="tab">
         <div class="row-fluid">
-          <div class="col-10 mt-4 offset-1">
+          <div class="col-lg-10 col-12 mt-4 offset-1">
             <div class="texts-wrapper">
               <div class="contents-title text-center">
                   <div class="d-flex flex-row flex-wrap">
@@ -59,15 +59,15 @@
       </div>
             <!--保存レシピ-->
       <div id="tab3" class="tab">
-        <div class="row">
-          <div class="col-10 mt-4 offset-1">
+        <div class="row-fluid">
+          <div class="col-lg-10 col-12 mt-4 offset-1">
             <div class="texts-wrapper">
               <div class="contents-title text-center">
                   <div class="d-flex flex-row flex-wrap">
                     <% @favorites.each do |favorite|%>
-                      <div class="d-flex flex-column mr-5 mt-3">
+                      <div class="d-flex flex-column mx-2 mt-3">
                         <%= link_to recipe_path(favorite.recipe.id), class:"link_recipe" do %>
-                          <%= attachment_image_tag favorite.recipe, :recipe_image, :fill, 100, 100, format:'jpeg', fallback:"no_image.jpg" %>
+                          <%= attachment_image_tag favorite.recipe, :recipe_image, :fill, 120, 120, format:'jpeg', fallback:"no_image.jpg" %>
                         <% end %>
                         <p class="name">
                           <%= link_to recipe_path(favorite.recipe.id), class:"text-dark" do %>
