@@ -7,15 +7,41 @@
   <div class="row">
     <div class="col-5 mt-4 offset-4">
       <div class"log-condition">
-        <% if @log.record_status == "fine"  %>
+        <% if @log.fine?  %>
           <div class"imag-status"><%= image_tag 'logo0.png', size: "150x100", class:"col-5 offset-2" %></div>
           <h3 class="log-text my-4">その調子で頑張ろう！！</h3>
-        <% elsif @log.record_status == "low" %>
+        <% elsif @log.low? %>
           <div class"imag-status"><%= image_tag 'logo1.png', size: "150x100", class:"col-5 offset-2"%></div>
           <h3 class="log-text my-4">おすすめレシピで綺麗習慣！</h3>
         <% else %>
           <div class"imag-status"><%= image_tag 'logo3.png', size: "150x100", class:"col-5 offset-2" %></div>
           <h3 class="log-text my-4">腸を温めて、休息をとろう！</h3>
+        <% end %>
+      </div>
+      <div class"log-colour">
+        <% if @log.light_brown?  %>
+          <div class"imag-status"><%= image_tag 'light_brown.png', size: "150x100", class:"col-5 offset-2" %></div>
+        <% elsif @log.brown? %>
+          <div class"imag-status"><%= image_tag 'brown.png', size: "150x100", class:"col-5 offset-2"%></div>
+        <% elsif @log.black? %>
+          <div class"imag-status"><%= image_tag 'black.png', size: "150x100", class:"col-5 offset-2"%></div>
+        <% elsif @log.orange? %>
+          <div class"imag-status"><%= image_tag 'orange.png', size: "150x100", class:"col-5 offset-2"%></div>
+        <% else %>
+          <div class"imag-status"><%= image_tag 'green.png', size: "150x100", class:"col-5 offset-2" %></div>
+        <% end %>
+      </div>
+      <div class"log-shape">
+        <% if @log.big?  %>
+          <div class"imag-status"><%= image_tag 'big.png', size: "150x100", class:"col-5 offset-2" %></div>
+        <% elsif @log.small? %>
+          <div class"imag-status"><%= image_tag 'small.png', size: "150x100", class:"col-5 offset-2"%></div>
+        <% elsif @log.hard? %>
+          <div class"imag-status"><%= image_tag 'hard.png', size: "150x100", class:"col-5 offset-2"%></div>
+        <% elsif @log.soft? %>
+          <div class"imag-status"><%= image_tag 'soft.png', size: "150x100", class:"col-5 offset-2"%></div>
+        <% else %>
+          <div class"imag-status"><%= image_tag 'water.png', size: "150x100", class:"col-5 offset-2" %></div>
         <% end %>
       </div>
       <p>
@@ -31,3 +57,32 @@
     </div>
   </div>
 </div>
+
+
+
+<canvas id="myChart"></canvas>
+<script>
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+  type: 'radar',
+  data: {
+    labels: ["スッキリ感", "色", "形"],
+    datasets: [
+        {
+        label: '今日の腸データ',
+        backgroundColor: 'rgba(122,255,109,0.2)',
+        borderColor: 'rgba(122,255,129,0.2)',
+        data: [<%= @log.record_status_score %>, <%= @log.colour_status_score %>, <%= @log.shape_status_score %>]
+        }
+    ]
+  },
+  options: {
+      scale: {
+          ticks: {
+              suggestedMin: 0,
+              suggestedMax: 5
+          }
+      }
+  }
+});
+</script>

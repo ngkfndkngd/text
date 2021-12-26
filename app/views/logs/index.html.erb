@@ -7,7 +7,7 @@
         <div class="col-8 my-10">
           <h4><strong>今日の腸の状態は？</strong></h4>
         </div>
-        <div class="row form-group col-8 my-4">
+        <div class="row form-group col-12 my-4">
         <%= form_with model:@log, url:logs_path, method: :post, local:true do |f| %>
           <%= f.radio_button :record_status, :fine, {checked: true} %>
           <%= image_tag 'logo0.png', size: "150x100"%>
@@ -17,9 +17,42 @@
 
           <%= f.radio_button :record_status, :sick, {} %>
           <%= image_tag 'logo3.png', size: "150x100"%></br>
+    
+            <!--カラー-->
+          <%= f.radio_button :colour_status, :light_brown, {checked: true} %>
+          <%= image_tag 'light_brown.png', size: "150x100"%>
+
+          <%= f.radio_button :colour_status, :brown, {} %>
+          <%= image_tag 'brown.png', size: "150x100"%>
+
+          <%= f.radio_button :colour_status, :black, {} %>
+          <%= image_tag 'black.png', size: "150x100"%>
+          
+          <%= f.radio_button :colour_status, :orange, {} %>
+          <%= image_tag 'orange.png', size: "150x100"%>
+
+          <%= f.radio_button :colour_status, :green, {} %>
+          <%= image_tag 'green.png', size: "150x100"%></br>
+          
+          
+          <!--形-->
+           <%= f.radio_button :shape_status, :big, {checked: true} %>
+          <%= image_tag 'big.png', size: "150x100"%>
+
+          <%= f.radio_button :shape_status, :small, {} %>
+          <%= image_tag 'small.png', size: "150x100"%>
+
+          <%= f.radio_button :shape_status, :hard, {} %>
+          <%= image_tag 'hard.png', size: "150x100"%>
+          
+          <%= f.radio_button :shape_status, :soft, {} %>
+          <%= image_tag 'soft.png', size: "150x100"%>
+
+          <%= f.radio_button :shape_status, :water, {} %>
+          <%= image_tag 'water.png', size: "150x100"%></br>
           
           <%= f.label :日時, class: "time_date my-3" %>
-            <%= f.datetime_select :start_time %>
+          <%= f.datetime_select :start_time %>
             
           <%= f.submit "登録", class: 'btn btn-outline-secondary offset-10' %>
           <% end %>
